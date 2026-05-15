@@ -121,6 +121,10 @@ namespace com.torinyan.MatSwap.Editor
 
             foreach (var jsonFile in Directory.EnumerateFiles(CMaterialBindingsPath, CJsonSearch, SearchOption.TopDirectoryOnly))
             {
+                // We skip the template file
+                if (jsonFile.Contains("Template.json", StringComparison.InvariantCultureIgnoreCase))
+                    continue;
+
                 var matBinding = JsonConvert.DeserializeObject<MaterialBindings>(File.ReadAllText(jsonFile));
                 _materialOptions.Add(matBinding.Name, matBinding);
             }

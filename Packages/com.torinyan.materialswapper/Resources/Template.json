@@ -1,0 +1,26 @@
+{
+  "Name": "Template",
+  "Addons": [
+    {
+      "Name": "Checkbox Name",
+      "PrefabPath": "Assets/Some/Path/MyEpicAddon.prefab"
+    }
+  ],
+  "Bindings": [
+    {
+      "PrefabPath": "",
+      "ObjectPath": "apple",
+      "Materials": [
+        "Assets/AltStyle/materials/apple_1.mat",
+        "Assets/AltStyle/materials/apple_2.mat"
+      ]
+    },
+    {
+      "PrefabPath": "Assets/Some/Path/MyEpicAddon.prefab",
+      "ObjectPath": "MyEpicAddon/juice",
+      "Materials": [
+        "Assets/AltStyle/materials/juice.mat"
+      ]
+    }
+  ]
+}
