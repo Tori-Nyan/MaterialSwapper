@@ -1,0 +1,327 @@
+{
+    "Name": "Ichigo",
+    "Addons": [
+        {
+            "Name": "Ichigo Cake",
+            "PrefabPath": "Assets/Ichigo Ban/Extras/Cake Ichigo.prefab"
+        },
+        {
+            "Name": "Ichigo Glasses",
+            "PrefabPath": "Assets/Ichigo Ban/Extras/Catocat_glasses Ichigo.prefab"
+        }
+    ],
+    "Bindings": [
+        {
+            "PrefabPath": "",
+            "ObjectPath": "ban_body",
+            "Materials": [
+                "Assets/Ichigo Ban/Base BAN/Materials/ban_body Ichigo.mat",
+                "Assets/Ichigo Ban/Base BAN/Materials/ban_body_belly Ichigo.mat"
+            ]
+        },
+        {
+            "PrefabPath": "",
+            "ObjectPath": "ban_endo",
+            "Materials": [ "Assets/Ichigo Ban/Base BAN/Materials/ban_endo Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "",
+            "ObjectPath": "ban_face_shade",
+            "Materials": [ "Assets/Ichigo Ban/Base BAN/Materials/face_shade Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "",
+            "ObjectPath": "ban_hairs",
+            "Materials": [ "Assets/Ichigo Ban/Base BAN/Materials/hairs Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "",
+            "ObjectPath": "ban_mask",
+            "Materials": [ "Assets/Ichigo Ban/Base BAN/Materials/ban_mask Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "",
+            "ObjectPath": "robot",
+            "Materials": [
+                "Assets/Ichigo Ban/Base BAN/Materials/ban_face Ichigo.mat",
+                "Assets/Ichigo Ban/Base BAN/Materials/eye_shade Ichigo.mat"
+            ]
+        },
+        {
+            "PrefabPath": "",
+            "ObjectPath": "ban_backpack",
+            "Materials": [ "Assets/Ichigo Ban/Base BAN/Materials/ban_props Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "",
+            "ObjectPath": "ban_can",
+            "Materials": [ "Assets/Ichigo Ban/Base BAN/Materials/ban_loreparts Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "",
+            "ObjectPath": "ban_grenade",
+            "Materials": [ "Assets/Ichigo Ban/Base BAN/Materials/ban_props Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "",
+            "ObjectPath": "ban_knife",
+            "Materials": [ "Assets/Ichigo Ban/Base BAN/Materials/ban_props Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "",
+            "ObjectPath": "ban_laser",
+            "Materials": [ "Assets/Ichigo Ban/Base BAN/Materials/ban_laser Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "",
+            "ObjectPath": "ban_launchers",
+            "Materials": [ "Assets/Ichigo Ban/Base BAN/Materials/ban_props Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "",
+            "ObjectPath": "ban_nails",
+            "Materials": [ "Assets/Ichigo Ban/Base BAN/Materials/ban_props Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "",
+            "ObjectPath": "ban_severed_hand",
+            "Materials": [
+                "Assets/Ichigo Ban/Base BAN/Materials/ban_loreparts Ichigo.mat",
+                "Assets/Ichigo Ban/Base BAN/Materials/ban_props Ichigo.mat"
+            ]
+        },
+        {
+            "PrefabPath": "",
+            "ObjectPath": "ban_severed_head",
+            "Materials": [ "Assets/Ichigo Ban/Base BAN/Materials/ban_loreparts Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "",
+            "ObjectPath": "Armature/hips/spine/chest/shoulder_L/upper_arm_L/lower_arm_L/zlower_arm_twist_L/Lasor prefab source/props.001",
+            "Materials": [ "Assets/Ichigo Ban/Base BAN/Materials/Laser_Particle Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "",
+            "ObjectPath": "Armature/hips/spine/chest/shoulder_R/upper_arm_R/lower_arm_R/zlower_arm_twist_R/Lasor prefab source/props.001",
+            "Materials": [ "Assets/Ichigo Ban/Base BAN/Materials/Laser_Particle Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/Ban Abusive GF/Arms dissasembled.prefab",
+            "ObjectPath": "Arms dissasembled/ban_nsfw_arms",
+            "Materials": [ "Assets/Ichigo Ban/AbusiveGF Addon/Materials/ban_cutlimbs Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/Ban Abusive GF/Ban huge gock.prefab",
+            "ObjectPath": "Ban huge gock/ban_gock_huge",
+            "Materials": [
+                "Assets/Ichigo Ban/AbusiveGF Addon/Materials/ban_huge_gock Ichigo.mat",
+                "Assets/Ichigo Ban/AbusiveGF Addon/Materials/ban_huge_gock_gp Ichigo.mat",
+                "Assets/Ichigo Ban/AbusiveGF Addon/Materials/ban_hugegock_endo Ichigo.mat"
+            ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/Ban Abusive GF/Ban huge gock.prefab",
+            "ObjectPath": "Ban huge gock/ban_gock_huge_armor",
+            "Materials": [ "Assets/Ichigo Ban/AbusiveGF Addon/Materials/ban_huge_gock Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/Ban Abusive GF/Ban medium gock.prefab",
+            "ObjectPath": "Ban medium gock/ban_med_gock",
+            "Materials": [
+                "Assets/Ichigo Ban/AbusiveGF Addon/Materials/ban_med_gock_gp Ichigo.mat",
+                "Assets/Ichigo Ban/AbusiveGF Addon/Materials/ban_med_gock Ichigo.mat"
+            ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/Ban Abusive GF/Huge lewd booba.prefab",
+            "ObjectPath": "Huge lewd booba/ban_huge_lood_booba",
+            "Materials": [
+                "Assets/Ichigo Ban/AbusiveGF Addon/Materials/boobs_hugelood_gp Ichigo.mat",
+                "Assets/Ichigo Ban/AbusiveGF Addon/Materials/boobs hugelood Ichigo.mat"
+            ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/Ban Abusive GF/Legs disassembled.prefab",
+            "ObjectPath": "Legs disassembled/ban_nsfw_legs",
+            "Materials": [ "Assets/Ichigo Ban/AbusiveGF Addon/Materials/ban_cutlimbs Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/Ban Abusive GF/Medium lewd booba.prefab",
+            "ObjectPath": "Medium lewd booba/ban_medium_boob_lewd",
+            "Materials": [
+                "Assets/Ichigo Ban/AbusiveGF Addon/Materials/ban_boob_med_lewd_gp Ichigo.mat",
+                "Assets/Ichigo Ban/AbusiveGF Addon/Materials/ban_boob_med_lewd Ichigo.mat"
+            ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/Ban Abusive GF/Pump endo.prefab",
+            "ObjectPath": "Pump endo/ban_endo_pump",
+            "Materials": [ "Assets/Ichigo Ban/AbusiveGF Addon/Materials/ban_pump_endo Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/Ban Abusive GF/Pussy and ass.prefab",
+            "ObjectPath": "Pussy and ass/ban_ass_shapekey",
+            "Materials": [ "Assets/Ichigo Ban/Base BAN/Materials/ban_body Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/Ban Abusive GF/Pussy and ass.prefab",
+            "ObjectPath": "Pussy and ass/ban_crotch_holes",
+            "Materials": [ "Assets/Ichigo Ban/AbusiveGF Addon/Materials/ban_holes Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/booba addon/ban coller.prefab",
+            "ObjectPath": "ban coller/ban_coller",
+            "Materials": [ "Assets/Ichigo Ban/Booba Addon/Materials/ban_coller Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/booba addon/ban flat boobs.prefab",
+            "ObjectPath": "ban flat boobs/ban_flat_boob",
+            "Materials": [
+                "Assets/Ichigo Ban/Booba Addon/Materials/ban_boob_flat_gp Ichigo.mat",
+                "Assets/Ichigo Ban/Booba Addon/Materials/ban_boob_flat Ichigo.mat"
+            ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/booba addon/huge_booba_source.prefab",
+            "ObjectPath": "huge_booba_source/ban_huge_boob",
+            "Materials": [
+                "Assets/Ichigo Ban/Booba Addon/Materials/boobs_huge gp Ichigo.mat",
+                "Assets/Ichigo Ban/Booba Addon/Materials/boobs huge Ichigo.mat"
+            ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/booba addon/medium boob source.prefab",
+            "ObjectPath": "medium boob source/ban_medium_boob",
+            "Materials": [
+                "Assets/Ichigo Ban/Booba Addon/Materials/ban_boob_med_gp Ichigo.mat",
+                "Assets/Ichigo Ban/Booba Addon/Materials/ban_boob_med Ichigo.mat"
+            ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/Ban Plates Addon/Ban cricked legs.prefab",
+            "ObjectPath": "Ban cricked legs/ban_crickedlegs",
+            "Materials": [ "Assets/Ichigo Ban/Plates Addon/Materials/ban_crickedlegs_Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/Ban Plates Addon/Ban light legs.prefab",
+            "ObjectPath": "Ban light legs/ban_light_legs",
+            "Materials": [ "Assets/Ichigo Ban/Plates Addon/Materials/ban_light_legs Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/Ban Plates Addon/Ban plated belly.prefab",
+            "ObjectPath": "Ban plated belly/ban_plated_belly",
+            "Materials": [ "Assets/Ichigo Ban/Plates Addon/Materials/ban_platedbelly_Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/Ban Plates Addon/Ban plated belly.prefab",
+            "ObjectPath": "Ban plated belly/ban_plated_chest",
+            "Materials": [ "Assets/Ichigo Ban/Plates Addon/Materials/ban_platedbelly_Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/Ban Plates Addon/Ban plated butt.prefab",
+            "ObjectPath": "Ban plated butt/ban_tupper_butt",
+            "Materials": [ "Assets/Ichigo Ban/Plates Addon/Materials/ban_plated_butt_Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/Ban Plates Addon/Ban plated tail.prefab",
+            "ObjectPath": "Ban plated tail/ban_plated_tail",
+            "Materials": [ "Assets/Ichigo Ban/Plates Addon/Materials/ban_plated_tail_Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/Ban Plates Addon/Ban smiley mask.prefab",
+            "ObjectPath": "Ban smiley mask/ban_mask_smiley",
+            "Materials": [ "Assets/Ichigo Ban/Plates Addon/Materials/ban_smiley mask_Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/conductor hat.prefab",
+            "ObjectPath": "conductor hat/conductor_hat",
+            "Materials": [ "Assets/Ichigo Ban/Reuse Slop Addon/Materials/ban_conductor_Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/industrial coller.prefab",
+            "ObjectPath": "industrial coller/collar_module",
+            "Materials": [ "Assets/Ichigo Ban/Reuse Slop Addon/Materials/ban_industrial_collar_Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/raruh cock.prefab",
+            "ObjectPath": "raruh cock/ponytail",
+            "Materials": [ "Assets/Ichigo Ban/Reuse Slop Addon/Materials/ban_raruh_cock_Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/raruh tail.prefab",
+            "ObjectPath": "raruh tail/tail_poofy",
+            "Materials": [ "Assets/Ichigo Ban/Reuse Slop Addon/Materials/ban_raruh_tail_Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/routa_glasses.prefab",
+            "ObjectPath": "routa_glasses/Ban_glasses",
+            "Materials": [
+                "Assets/Ichigo Ban/Reuse Slop Addon/Materials/ban_routa_glasses_Ichigo.mat",
+                "Assets/Ichigo Ban/Reuse Slop Addon/Materials/BAN_RoutaLens_Ichigo.mat"
+            ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/router collar.prefab",
+            "ObjectPath": "router collar/ban_routa_collar",
+            "Materials": [ "Assets/Ichigo Ban/Reuse Slop Addon/Materials/ban_routa_bits_Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/router halo.prefab",
+            "ObjectPath": "router halo/ban_routa_halo",
+            "Materials": [ "Assets/Ichigo Ban/Reuse Slop Addon/Materials/ban_routa_bits_Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/router_ears.prefab",
+            "ObjectPath": "router_ears/ban_routa_ears",
+            "Materials": [ "Assets/Ichigo Ban/Reuse Slop Addon/Materials/ban_routa_bits_Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/router_pin.prefab",
+            "ObjectPath": "router_pin/ban_chip",
+            "Materials": [ "Assets/Ichigo Ban/Reuse Slop Addon/Materials/ban_routa_cap_Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/runa hooves.prefab",
+            "ObjectPath": "runa hooves/roona_hooves",
+            "Materials": [ "Assets/Ichigo Ban/Reuse Slop Addon/Materials/ban_hooves_Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/runa horns.prefab",
+            "ObjectPath": "runa horns/horn_long",
+            "Materials": [ "Assets/Ichigo Ban/Reuse Slop Addon/Materials/ban_horns_Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/runa horns.prefab",
+            "ObjectPath": "runa horns/horn_short",
+            "Materials": [ "Assets/Ichigo Ban/Reuse Slop Addon/Materials/ban_horns_Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/runa horns.prefab",
+            "ObjectPath": "runa horns/horn_side",
+            "Materials": [ "Assets/Ichigo Ban/Reuse Slop Addon/Materials/ban_horns_Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/runa horse dong.prefab",
+            "ObjectPath": "runa horse dong/crotch_heavyduty",
+            "Materials": [ "Assets/Ichigo Ban/Reuse Slop Addon/Materials/ban_horse_Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/runa pins.prefab",
+            "ObjectPath": "runa pins/nuna_pins",
+            "Materials": [ "Assets/Ichigo Ban/Reuse Slop Addon/Materials/ban_pins_Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/runa short tail.prefab",
+            "ObjectPath": "runa short tail/conductor_tail",
+            "Materials": [ "Assets/Ichigo Ban/Reuse Slop Addon/Materials/ban_conductor_Ichigo.mat" ]
+        },
+        {
+            "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/runa wand.prefab",
+            "ObjectPath": "runa wand/magic_wand",
+            "Materials": [
+                "Assets/Ichigo Ban/Reuse Slop Addon/Materials/ban_wand_gp_Ichigo.mat",
+                "Assets/Ichigo Ban/Reuse Slop Addon/Materials/ban_wand_Ichigo.mat"
+            ]
+        }
+    ]
+}

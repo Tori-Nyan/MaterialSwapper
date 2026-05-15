@@ -1,0 +1,318 @@
+{
+  "Name": "BAN Default",
+  "Addons": [],
+  "Bindings": [
+    {
+      "PrefabPath": "",
+      "ObjectPath": "ban_body",
+      "Materials": [
+        "Assets/[torinyan]Ban/materials/ban_body.mat",
+        "Assets/[torinyan]Ban/materials/ban_body_belly.mat"
+      ]
+    },
+    {
+      "PrefabPath": "",
+      "ObjectPath": "ban_endo",
+      "Materials": [ "Assets/[torinyan]Ban/materials/ban_endo.mat" ]
+    },
+    {
+      "PrefabPath": "",
+      "ObjectPath": "ban_face_shade",
+      "Materials": [ "Assets/[torinyan]Ban/materials/face_shade.mat" ]
+    },
+    {
+      "PrefabPath": "",
+      "ObjectPath": "ban_hairs",
+      "Materials": [ "Assets/[torinyan]Ban/materials/hairs.mat" ]
+    },
+    {
+      "PrefabPath": "",
+      "ObjectPath": "ban_mask",
+      "Materials": [ "Assets/[torinyan]Ban/materials/ban_mask.mat" ]
+    },
+    {
+      "PrefabPath": "",
+      "ObjectPath": "robot",
+      "Materials": [
+        "Assets/[torinyan]Ban/materials/ban_face.mat",
+        "Assets/[torinyan]Ban/materials/eye_shade.mat"
+      ]
+    },
+    {
+      "PrefabPath": "",
+      "ObjectPath": "ban_backpack",
+      "Materials": [ "Assets/[torinyan]Ban/materials/ban_props.mat" ]
+    },
+    {
+      "PrefabPath": "",
+      "ObjectPath": "ban_can",
+      "Materials": [ "Assets/[torinyan]Ban/materials/ban_loreparts.mat" ]
+    },
+    {
+      "PrefabPath": "",
+      "ObjectPath": "ban_grenade",
+      "Materials": [ "Assets/[torinyan]Ban/materials/ban_props.mat" ]
+    },
+    {
+      "PrefabPath": "",
+      "ObjectPath": "ban_knife",
+      "Materials": [ "Assets/[torinyan]Ban/materials/ban_props.mat" ]
+    },
+    {
+      "PrefabPath": "",
+      "ObjectPath": "ban_laser",
+      "Materials": [ "Assets/[torinyan]Ban/materials/ban_laser.mat" ]
+    },
+    {
+      "PrefabPath": "",
+      "ObjectPath": "ban_launchers",
+      "Materials": [ "Assets/[torinyan]Ban/materials/ban_props.mat" ]
+    },
+    {
+      "PrefabPath": "",
+      "ObjectPath": "ban_nails",
+      "Materials": [ "Assets/[torinyan]Ban/materials/ban_props.mat" ]
+    },
+    {
+      "PrefabPath": "",
+      "ObjectPath": "ban_severed_hand",
+      "Materials": [
+        "Assets/[torinyan]Ban/materials/ban_loreparts.mat",
+        "Assets/[torinyan]Ban/materials/ban_props.mat"
+      ]
+    },
+    {
+      "PrefabPath": "",
+      "ObjectPath": "ban_severed_head",
+      "Materials": [ "Assets/[torinyan]Ban/materials/ban_loreparts.mat" ]
+    },
+    {
+      "PrefabPath": "",
+      "ObjectPath": "Armature/hips/spine/chest/shoulder_L/upper_arm_L/lower_arm_L/zlower_arm_twist_L/Lasor prefab source/props.001",
+      "Materials": [ "Assets/[torinyan]Ban/materials/Laser_Particle.mat" ]
+    },
+    {
+      "PrefabPath": "",
+      "ObjectPath": "Armature/hips/spine/chest/shoulder_R/upper_arm_R/lower_arm_R/zlower_arm_twist_R/Lasor prefab source/props.001",
+      "Materials": [ "Assets/[torinyan]Ban/materials/Laser_Particle.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/Ban Abusive GF/Arms dissasembled.prefab",
+      "ObjectPath": "Arms dissasembled/ban_nsfw_arms",
+      "Materials": [ "Assets/[torinyan]Ban/Ban Abusive GF/dissasembled limbs/Materials/ban_cutlimbs.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/Ban Abusive GF/Ban huge gock.prefab",
+      "ObjectPath": "Ban huge gock/ban_gock_huge",
+      "Materials": [
+        "Assets/[torinyan]Ban/Ban Abusive GF/huge gock/materials/ban_huge_gock.mat",
+        "Assets/[torinyan]Ban/Ban Abusive GF/huge gock/materials/ban_huge_gock_gp.mat",
+        "Assets/[torinyan]Ban/Ban Abusive GF/huge gock/materials/ban_hugegock_endo.mat"
+      ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/Ban Abusive GF/Ban huge gock.prefab",
+      "ObjectPath": "Ban huge gock/ban_gock_huge_armor",
+      "Materials": [ "Assets/[torinyan]Ban/Ban Abusive GF/huge gock/materials/ban_huge_gock.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/Ban Abusive GF/Ban medium gock.prefab",
+      "ObjectPath": "Ban medium gock/ban_med_gock",
+      "Materials": [
+        "Assets/[torinyan]Ban/Ban Abusive GF/medium gock/materials/ban_medium_gock_gp.mat",
+        "Assets/[torinyan]Ban/Ban Abusive GF/medium gock/materials/ban_medium_gock.mat"
+      ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/Ban Abusive GF/Huge lewd booba.prefab",
+      "ObjectPath": "Huge lewd booba/ban_huge_lood_booba",
+      "Materials": [
+        "Assets/[torinyan]Ban/Ban Abusive GF/huge leeewd booba/materials/boobs_hugelood_gp.mat",
+        "Assets/[torinyan]Ban/Ban Abusive GF/huge leeewd booba/materials/boobs hugelood.mat"
+      ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/Ban Abusive GF/Legs disassembled.prefab",
+      "ObjectPath": "Legs disassembled/ban_nsfw_legs",
+      "Materials": [ "Assets/[torinyan]Ban/Ban Abusive GF/dissasembled limbs/Materials/ban_cutlimbs.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/Ban Abusive GF/Medium lewd booba.prefab",
+      "ObjectPath": "Medium lewd booba/ban_medium_boob_lewd",
+      "Materials": [
+        "Assets/[torinyan]Ban/Ban Abusive GF/medium leeewd booba/materials/ban_boob_med_lewd_gp.mat",
+        "Assets/[torinyan]Ban/Ban Abusive GF/medium leeewd booba/materials/ban_boob_med_lewd.mat"
+      ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/Ban Abusive GF/Pump endo.prefab",
+      "ObjectPath": "Pump endo/ban_endo_pump",
+      "Materials": [ "Assets/[torinyan]Ban/Ban Abusive GF/pump endo/materials/ban_pump_endo.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/Ban Abusive GF/Pussy and ass.prefab",
+      "ObjectPath": "Pussy and ass/ban_ass_shapekey",
+      "Materials": [ "Assets/[torinyan]Ban/materials/ban_body.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/Ban Abusive GF/Pussy and ass.prefab",
+      "ObjectPath": "Pussy and ass/ban_crotch_holes",
+      "Materials": [ "Assets/[torinyan]Ban/Ban Abusive GF/holes/materials/ban_holes.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/booba addon/ban coller.prefab",
+      "ObjectPath": "ban coller/ban_coller",
+      "Materials": [ "Assets/[torinyan]Ban/booba addon/coller/materials/ban_coller.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/booba addon/ban flat boobs.prefab",
+      "ObjectPath": "ban flat boobs/ban_flat_boob",
+      "Materials": [
+        "Assets/[torinyan]Ban/booba addon/flat boob/materials/ban_boob_flat_gp.mat",
+        "Assets/[torinyan]Ban/booba addon/flat boob/materials/ban_boob_flat.mat"
+      ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/booba addon/huge_booba_source.prefab",
+      "ObjectPath": "huge_booba_source/ban_huge_boob",
+      "Materials": [
+        "Assets/[torinyan]Ban/booba addon/huge boob/materials/boobs_huge gp.mat",
+        "Assets/[torinyan]Ban/booba addon/huge boob/materials/boobs huge.mat"
+      ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/booba addon/medium boob source.prefab",
+      "ObjectPath": "medium boob source/ban_medium_boob",
+      "Materials": [
+        "Assets/[torinyan]Ban/booba addon/medium boob/materials/ban_boob_med_gp.mat",
+        "Assets/[torinyan]Ban/booba addon/medium boob/materials/ban_boob_med.mat"
+      ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/Ban Plates Addon/Ban cricked legs.prefab",
+      "ObjectPath": "Ban cricked legs/ban_crickedlegs",
+      "Materials": [ "Assets/[torinyan]Ban/Ban Plates Addon/cricked legs/materials/ban_crickedlegs.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/Ban Plates Addon/Ban light legs.prefab",
+      "ObjectPath": "Ban light legs/ban_light_legs",
+      "Materials": [ "Assets/[torinyan]Ban/Ban Plates Addon/lightweight legs/materials/ban_light_legs.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/Ban Plates Addon/Ban plated belly.prefab",
+      "ObjectPath": "Ban plated belly/ban_plated_belly",
+      "Materials": [ "Assets/[torinyan]Ban/Ban Plates Addon/belly plates/materials/ban_platedbelly.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/Ban Plates Addon/Ban plated belly.prefab",
+      "ObjectPath": "Ban plated belly/ban_plated_chest",
+      "Materials": [ "Assets/[torinyan]Ban/Ban Plates Addon/belly plates/materials/ban_platedbelly.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/Ban Plates Addon/Ban plated butt.prefab",
+      "ObjectPath": "Ban plated butt/ban_tupper_butt",
+      "Materials": [ "Assets/[torinyan]Ban/Ban Plates Addon/butt plates/Materials/ban_plated_butt.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/Ban Plates Addon/Ban plated tail.prefab",
+      "ObjectPath": "Ban plated tail/ban_plated_tail",
+      "Materials": [ "Assets/[torinyan]Ban/Ban Plates Addon/plated tail/material/ban_plated_tail.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/Ban Plates Addon/Ban smiley mask.prefab",
+      "ObjectPath": "Ban smiley mask/ban_mask_smiley",
+      "Materials": [ "Assets/[torinyan]Ban/Ban Plates Addon/ban smiley mask/materials/ban_smiley mask.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/conductor hat.prefab",
+      "ObjectPath": "conductor hat/conductor_hat",
+      "Materials": [ "Assets/[torinyan]Ban/reuse slop addon/materials/ban_conductor.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/industrial coller.prefab",
+      "ObjectPath": "industrial coller/collar_module",
+      "Materials": [ "Assets/[torinyan]Ban/reuse slop addon/materials/ban_industrial_collar.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/raruh cock.prefab",
+      "ObjectPath": "raruh cock/ponytail",
+      "Materials": [ "Assets/[torinyan]Ban/reuse slop addon/materials/ban_raruh_cock.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/raruh tail.prefab",
+      "ObjectPath": "raruh tail/tail_poofy",
+      "Materials": [ "Assets/[torinyan]Ban/reuse slop addon/materials/ban_raruh_tail.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/routa_glasses.prefab",
+      "ObjectPath": "routa_glasses/Ban_glasses",
+      "Materials": [
+        "Assets/[torinyan]Ban/reuse slop addon/materials/ban_routa_glasses.mat",
+        "Assets/[torinyan]Ban/reuse slop addon/materials/lens.mat"
+      ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/router collar.prefab",
+      "ObjectPath": "router collar/ban_routa_collar",
+      "Materials": [ "Assets/[torinyan]Ban/reuse slop addon/materials/ban_routa_bits.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/router halo.prefab",
+      "ObjectPath": "router halo/ban_routa_halo",
+      "Materials": [ "Assets/[torinyan]Ban/reuse slop addon/materials/ban_routa_bits.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/router_ears.prefab",
+      "ObjectPath": "router_ears/ban_routa_ears",
+      "Materials": [ "Assets/[torinyan]Ban/reuse slop addon/materials/ban_routa_bits.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/router_pin.prefab",
+      "ObjectPath": "router_pin/ban_chip",
+      "Materials": [ "Assets/[torinyan]Ban/reuse slop addon/materials/ban_routa_cap.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/runa hooves.prefab",
+      "ObjectPath": "runa hooves/roona_hooves",
+      "Materials": [ "Assets/[torinyan]Ban/reuse slop addon/materials/ban_hooves.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/runa horns.prefab",
+      "ObjectPath": "runa horns/horn_long",
+      "Materials": [ "Assets/[torinyan]Ban/reuse slop addon/materials/ban_horns.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/runa horns.prefab",
+      "ObjectPath": "runa horns/horn_short",
+      "Materials": [ "Assets/[torinyan]Ban/reuse slop addon/materials/ban_horns.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/runa horns.prefab",
+      "ObjectPath": "runa horns/horn_side",
+      "Materials": [ "Assets/[torinyan]Ban/reuse slop addon/materials/ban_horns.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/runa horse dong.prefab",
+      "ObjectPath": "runa horse dong/crotch_heavyduty",
+      "Materials": [ "Assets/[torinyan]Ban/reuse slop addon/materials/ban_horse.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/runa pins.prefab",
+      "ObjectPath": "runa pins/nuna_pins",
+      "Materials": [ "Assets/[torinyan]Ban/reuse slop addon/materials/ban_pins.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/runa short tail.prefab",
+      "ObjectPath": "runa short tail/conductor_tail",
+      "Materials": [ "Assets/[torinyan]Ban/reuse slop addon/materials/ban_conductor.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/runa wand.prefab",
+      "ObjectPath": "runa wand/magic_wand",
+      "Materials": [
+        "Assets/[torinyan]Ban/reuse slop addon/materials/ban_wand_gp.mat",
+        "Assets/[torinyan]Ban/reuse slop addon/materials/ban_wand.mat"
+      ]
+    }
+  ]
+}

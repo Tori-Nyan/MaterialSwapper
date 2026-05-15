@@ -16,7 +16,7 @@ It also allows creators to specify some addon prefabs that'll be placed as a chi
 ## Material Creator How-To
 
 1. Duplicate (`Ctrl`+`D` in Unity Editor) the template file  
-  You can find the file here: `Packages/[Torinyan] Material Swapper/Resources/Template.json`  
+  You can find the file here: `Assets/[Torinyan] Tools/MaterialSwapper/Template.json`  
   For the Torinyan avatar BAN you can duplicate `BAN_Default.json` instead
 2. Rename the new file to whatever you like
 3. Edit the new file in any text editor, even Notepad will do (Double-click the file in Unity Editor to open it)  

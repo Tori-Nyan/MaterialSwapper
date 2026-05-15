@@ -29,8 +29,41 @@ using VRC.SDK3.Avatars.Components;
 
 namespace com.torinyan.MatSwap.Editor
 {
+    internal class MatSwapEnsureAssetFolderExists : AssetPostprocessor
+    {
+        private readonly static Dictionary<string, string> CDefaultMappings = new()
+        {
+            { "Packages/com.torinyan.materialswapper/Resources/BAN_Default.json", $"{MaterialSwapper.CAssetPath}BAN_Default.json" },
+            { "Packages/com.torinyan.materialswapper/Resources/Template.json", $"{MaterialSwapper.CAssetPath}Template.json" }
+        };
+
+        static void OnPostprocessAllAssets(string[] imports, string[] deletes, string[] moves, string[] movedFromAssets, bool domainReload) {
+            if (!Directory.Exists(MaterialSwapper.CAssetPath))
+            {
+                try
+                {
+                    Directory.CreateDirectory(MaterialSwapper.CAssetPath);
+                }
+                catch (Exception ex)
+                {
+                    Debug.Log($"Error creating the Material Bindings folder: {ex.Message}");
+                    return;
+                }
+            }
+
+            foreach (var (resourcePath, assetPath) in CDefaultMappings)
+            {
+                if (File.Exists(resourcePath) && !File.Exists(assetPath))
+                    File.Copy(resourcePath, assetPath);
+            }
+        }
+    }
+
     public class MaterialSwapper : EditorWindow
     {
+        internal const string CAssetPath = "Assets/[Torinyan] Tools/MaterialSwapper/";
+        private const string CJsonSearch = "*.json";
+
         private class MaterialBindings
         {
             public class AddonInfo
@@ -49,9 +82,6 @@ namespace com.torinyan.MatSwap.Editor
             public AddonInfo[] Addons;
             public BindingInfo[] Bindings;
         }
-
-        private const string CMaterialBindingsPath = "Packages/com.torinyan.materialswapper/Resources/";
-        private const string CJsonSearch = "*.json";
 
         private static readonly Vector2 _windowSizeDefault = new(500f, 71f);
         private static readonly Vector2 _guiElementSpacing = new(0f, 21f);
@@ -119,7 +149,7 @@ namespace com.torinyan.MatSwap.Editor
             _addonPrefabs.Clear();
             _materialOptions.Clear();
 
-            foreach (var jsonFile in Directory.EnumerateFiles(CMaterialBindingsPath, CJsonSearch, SearchOption.TopDirectoryOnly))
+            foreach (var jsonFile in Directory.EnumerateFiles(CAssetPath, CJsonSearch, SearchOption.TopDirectoryOnly))
             {
                 // We skip the template file
                 if (jsonFile.Contains("Template.json", StringComparison.InvariantCultureIgnoreCase))
