@@ -32,7 +32,7 @@ namespace com.torinyan.MatSwap.Editor
             public BindingInfo[] Bindings;
         }
 
-        private const string CMaterialBindingsPath = "Assets/[Torinyan]Tools/MaterialSwapper/";
+        private const string CMaterialBindingsPath = "Packages/com.torinyan.materialswapper/Resources/";
         private const string CJsonSearch = "*.json";
 
         private static readonly Vector2 _windowSizeDefault = new(500f, 71f);
