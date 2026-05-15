@@ -37,9 +37,14 @@ namespace com.torinyan.MatSwap.Editor
             { "Packages/com.torinyan.materialswapper/Resources/Template.json", $"{MaterialSwapper.CAssetPath}Template.json" }
         };
 
-        static void OnPostprocessAllAssets(string[] imports, string[] deletes, string[] moves, string[] movedFromAssets, bool domainReload) {
+        static void OnPostprocessAllAssets(string[] imports, string[] deletes, string[] moves, string[] movedFromAssets, bool domainReload)
+        {
+            bool hadChanges = false;
+
             if (!Directory.Exists(MaterialSwapper.CAssetPath))
             {
+                hadChanges = true;
+
                 try
                 {
                     Directory.CreateDirectory(MaterialSwapper.CAssetPath);
@@ -54,8 +59,14 @@ namespace com.torinyan.MatSwap.Editor
             foreach (var (resourcePath, assetPath) in CDefaultMappings)
             {
                 if (File.Exists(resourcePath) && !File.Exists(assetPath))
+                {
+                    hadChanges = true;
                     File.Copy(resourcePath, assetPath);
+                }
             }
+
+            if (hadChanges)
+                AssetDatabase.Refresh();
         }
     }
 

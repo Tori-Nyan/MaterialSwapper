@@ -1,3 +1,6 @@
+v1.0.4
+  - Fix asset importing after creation
+
 v1.0.3
   - Fix silly issue with VPM deleting non-default definitions on update
 
