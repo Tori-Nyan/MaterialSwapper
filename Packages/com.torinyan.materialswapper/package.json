@@ -1,0 +1,26 @@
+{
+  "name": "com.torinyan.materialswapper",
+  "displayName": "[Torinyan] Material Swapper",
+  "description": "A tool to quickly swap the materials on your avatars.",
+  "version": "0.0.0",
+  "unity": "2022.3",
+  "author": {
+    "name": "Tori-Nyan",
+    "url": "https://github.com/Tori-Nyan"
+  },
+  "keywords": [
+    "Torinyan",
+    "Tori",
+    "Nyan",
+    "Material",
+    "swap",
+    "Avatar"
+  ],
+  "type": "tool",
+  "vpmDependencies": {
+    "com.vrchat.avatars": "^3.5.0"
+  },
+  "license": "GPL-3.0",
+  "licensesUrl": "https://github.com/Tori-Nyan/MaterialSwapper/blob/main/LICENSE",
+  "changelogUrl": "https://github.com/Tori-Nyan/MaterialSwapper/blob/master/CHANGELOG.md"
+}
