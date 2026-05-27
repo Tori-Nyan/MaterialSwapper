@@ -2,10 +2,14 @@ v1.0.5
   - Switch from forced file existance to initialized lock file
   - Code formatting
   - Add "Custom (Drag&Drop below)" to the avatar selection dropdown
-  - Add ability to offset the addon's path
+  - Add ability to offset the addon's installation path
+  - Add logging for warnings/errors
   - Fix AssetDatabase refreshing after default binding config copy
   - Fix custom avatar handling
   - Fix offset parent handling for addon prefabs
+  - Fix possible index-out-of-bounds errors when there is a different number of materials between the definition and avatar
+  - Fix issue where processing stops when an addon already exists
+  - Move addon handling into it's own method
 
 v1.0.4
   - Fix asset importing after creation

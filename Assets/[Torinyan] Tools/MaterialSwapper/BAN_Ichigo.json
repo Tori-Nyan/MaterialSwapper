@@ -1,5 +1,6 @@
 {
-    "Name": "Ichigo",
+    "Name": "BAN Ichigo",
+    "DependsOn": "Assets/[torinyan]Ban/meshes and blend/Ban_source.fbx",
     "Addons": [
         {
             "Name": "Ichigo Cake",
@@ -12,7 +13,6 @@
     ],
     "Bindings": [
         {
-            "PrefabPath": "",
             "ObjectPath": "ban_body",
             "Materials": [
                 "Assets/Ichigo Ban/Base BAN/Materials/ban_body Ichigo.mat",
@@ -20,27 +20,22 @@
             ]
         },
         {
-            "PrefabPath": "",
             "ObjectPath": "ban_endo",
             "Materials": [ "Assets/Ichigo Ban/Base BAN/Materials/ban_endo Ichigo.mat" ]
         },
         {
-            "PrefabPath": "",
             "ObjectPath": "ban_face_shade",
             "Materials": [ "Assets/Ichigo Ban/Base BAN/Materials/face_shade Ichigo.mat" ]
         },
         {
-            "PrefabPath": "",
             "ObjectPath": "ban_hairs",
             "Materials": [ "Assets/Ichigo Ban/Base BAN/Materials/hairs Ichigo.mat" ]
         },
         {
-            "PrefabPath": "",
             "ObjectPath": "ban_mask",
             "Materials": [ "Assets/Ichigo Ban/Base BAN/Materials/ban_mask Ichigo.mat" ]
         },
         {
-            "PrefabPath": "",
             "ObjectPath": "robot",
             "Materials": [
                 "Assets/Ichigo Ban/Base BAN/Materials/ban_face Ichigo.mat",
@@ -48,42 +43,34 @@
             ]
         },
         {
-            "PrefabPath": "",
             "ObjectPath": "ban_backpack",
             "Materials": [ "Assets/Ichigo Ban/Base BAN/Materials/ban_props Ichigo.mat" ]
         },
         {
-            "PrefabPath": "",
             "ObjectPath": "ban_can",
             "Materials": [ "Assets/Ichigo Ban/Base BAN/Materials/ban_loreparts Ichigo.mat" ]
         },
         {
-            "PrefabPath": "",
             "ObjectPath": "ban_grenade",
             "Materials": [ "Assets/Ichigo Ban/Base BAN/Materials/ban_props Ichigo.mat" ]
         },
         {
-            "PrefabPath": "",
             "ObjectPath": "ban_knife",
             "Materials": [ "Assets/Ichigo Ban/Base BAN/Materials/ban_props Ichigo.mat" ]
         },
         {
-            "PrefabPath": "",
             "ObjectPath": "ban_laser",
             "Materials": [ "Assets/Ichigo Ban/Base BAN/Materials/ban_laser Ichigo.mat" ]
         },
         {
-            "PrefabPath": "",
             "ObjectPath": "ban_launchers",
             "Materials": [ "Assets/Ichigo Ban/Base BAN/Materials/ban_props Ichigo.mat" ]
         },
         {
-            "PrefabPath": "",
             "ObjectPath": "ban_nails",
             "Materials": [ "Assets/Ichigo Ban/Base BAN/Materials/ban_props Ichigo.mat" ]
         },
         {
-            "PrefabPath": "",
             "ObjectPath": "ban_severed_hand",
             "Materials": [
                 "Assets/Ichigo Ban/Base BAN/Materials/ban_loreparts Ichigo.mat",
@@ -91,17 +78,14 @@
             ]
         },
         {
-            "PrefabPath": "",
             "ObjectPath": "ban_severed_head",
             "Materials": [ "Assets/Ichigo Ban/Base BAN/Materials/ban_loreparts Ichigo.mat" ]
         },
         {
-            "PrefabPath": "",
             "ObjectPath": "Armature/hips/spine/chest/shoulder_L/upper_arm_L/lower_arm_L/zlower_arm_twist_L/Lasor prefab source/props.001",
             "Materials": [ "Assets/Ichigo Ban/Base BAN/Materials/Laser_Particle Ichigo.mat" ]
         },
         {
-            "PrefabPath": "",
             "ObjectPath": "Armature/hips/spine/chest/shoulder_R/upper_arm_R/lower_arm_R/zlower_arm_twist_R/Lasor prefab source/props.001",
             "Materials": [ "Assets/Ichigo Ban/Base BAN/Materials/Laser_Particle Ichigo.mat" ]
         },

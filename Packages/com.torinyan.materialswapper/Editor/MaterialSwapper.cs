@@ -44,7 +44,7 @@ namespace com.torinyan.MatSwap.Editor
                     File.Delete(CInitializedFile);
                     Directory.CreateDirectory(MaterialSwapper.CAssetPath);
                 } catch (Exception ex) {
-                    Debug.Log($"Error creating the Material Bindings folder: {ex.Message}");
+                    MaterialSwapper.Log($"Error creating the Material Bindings folder: {ex.Message}", LogType.Exception);
                     return;
                 }
             }
@@ -53,7 +53,7 @@ namespace com.torinyan.MatSwap.Editor
                 try {
                     File.WriteAllText(CInitializedFile, string.Empty);
                 } catch (Exception ex) {
-                    Debug.Log($"Error copying default binhdings to Material Bindings folder: {ex.Message}");
+                    MaterialSwapper.Log($"Error copying default binhdings to Material Bindings folder: {ex.Message}", LogType.Exception);
                     return;
                 }
 
@@ -64,7 +64,7 @@ namespace com.torinyan.MatSwap.Editor
                         if (File.Exists(srcPath) && !File.Exists(destPath))
                             AssetDatabase.CopyAsset(srcPath, destPath);
                     } catch (Exception ex) {
-                        Debug.Log($"Error copying default binhdings to Material Bindings folder: {ex.Message}");
+                        MaterialSwapper.Log($"Error copying default binhdings to Material Bindings folder: {ex.Message}", LogType.Exception);
                     }
                 }
 
@@ -142,7 +142,7 @@ namespace com.torinyan.MatSwap.Editor
                 _selectedAvatarId = EditorGUILayout.Popup("Avatar Select", _selectedAvatarId, _avatarNames);
             }
             if (EditorGUI.EndChangeCheck() && _selectedAvatarId > 0)
-                _selectedAvatar = _avatars[_selectedAvatarId];
+                _selectedAvatar = _avatars[_selectedAvatarId - 1];
 
             EditorGUI.BeginChangeCheck();
             {
@@ -174,6 +174,30 @@ namespace com.torinyan.MatSwap.Editor
                 }
             }
             EditorGUI.EndDisabledGroup();
+        }
+
+        internal static void Log(string msg, LogType logType = LogType.Log) {
+            var outMsg = $"{logType} - <color=#ff6961ff>[MatSwap]</color> {msg}";
+
+            switch (logType) {
+                case LogType.Exception:
+                case LogType.Error: {
+                    Debug.LogError(outMsg);
+                    return;
+                }
+                case LogType.Assert: {
+                    Debug.LogAssertion(outMsg);
+                    return;
+                }
+                case LogType.Warning: {
+                    Debug.LogWarning(outMsg);
+                    return;
+                }
+                default: {
+                    Debug.Log(outMsg);
+                    return;
+                }
+            }
         }
 
         private void UpdateOptions() {
@@ -236,52 +260,40 @@ namespace com.torinyan.MatSwap.Editor
             _avatarNames = names.ToArray();
 
             if (_selectedAvatarId > 0)
-                _selectedAvatar = _avatars[_selectedAvatarId];
+                _selectedAvatar = _avatars[_selectedAvatarId - 1];
         }
 
         private void PerformSwap(MaterialBindings matType) {
-            if (_selectedAvatar == null)
+            if (_selectedAvatar == null) {
+                Debug.LogError("Target avatar is NULL");
                 return;
+            }
 
             var avatarTransform = _selectedAvatar.transform;
 
             Undo.SetCurrentGroupName($"[Torinyan] Perform material swap `{matType.Name}`");
             int group = Undo.GetCurrentGroup();
-
-            foreach (var (addonName, addonInfo) in _addonPrefabs) {
-                if (addonInfo.Enabled) {
-                    var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(addonInfo.info.PrefabPath);
-
-                    if (prefab == null || avatarTransform.Find(prefab.name) != null)
-                        return;
-
-                    var newGO = PrefabUtility.InstantiatePrefab(prefab) as GameObject;
-                    Undo.RegisterCreatedObjectUndo(newGO, $"Create new {addonName} object");
-                    Undo.RecordObject(newGO, $"Reparent new {addonName} object");
-
-                    var parent = string.IsNullOrWhiteSpace(addonInfo.info.InstallAt)
-                        ? avatarTransform
-                        : avatarTransform.Find(addonInfo.info.InstallAt);
-                    newGO.transform.SetParent(parent);
-                    newGO.transform.position += avatarTransform.position;
-                }
-            }
+            AddSelectedAddons(avatarTransform);
 
             foreach (var binding in matType.Bindings) {
                 if (!string.IsNullOrWhiteSpace(binding.PrefabPath) && !File.Exists(binding.PrefabPath))
-                    continue;
+                    continue; // Silently skip, no need to spam the logs with this
 
                 var curObj = avatarTransform.Find(binding.ObjectPath);
 
                 if (curObj == null || !curObj.TryGetComponent<Renderer>(out var renderer))
-                    continue;
+                    continue; // Silently skip, no need to spam the logs with this
 
-                var matLen = binding.Materials.Length;
+                var oldMaterials = renderer.sharedMaterials;
+                var matLen = Math.Max(binding.Materials.Length, oldMaterials.Length);
                 var materials = new List<Material>(matLen);
 
                 for (int i = 0; i < matLen; i++) {
-                    if (!File.Exists(binding.Materials[i])) {
-                        materials.Add(renderer.sharedMaterials[i]);
+                    // Little bit of a safety-net to avoid out-of-bounds
+                    if (i >= binding.Materials.Length || !File.Exists(binding.Materials[i])) {
+                        if (i < oldMaterials.Length)
+                            materials.Add(oldMaterials[i]);
+
                         continue;
                     }
 
@@ -298,6 +310,46 @@ namespace com.torinyan.MatSwap.Editor
             }
 
             Undo.CollapseUndoOperations(group);
+        }
+
+        private void AddSelectedAddons(Transform targetAvatar) {
+            if (targetAvatar == null) {
+                Log("Target avatar is NULL", LogType.Error);
+                return;
+            }
+
+            foreach (var (addonName, addonInfo) in _addonPrefabs) {
+                if (addonInfo.Enabled) {
+                    var installAtTransform = string.IsNullOrWhiteSpace(addonInfo.info.InstallAt)
+                        ? targetAvatar
+                        : targetAvatar.Find(addonInfo.info.InstallAt);
+
+                    if (installAtTransform == null) {
+                        Log($"Addon `{addonName}` InstallAt location `{addonInfo.info.InstallAt}` not found, skipping", LogType.Warning);
+                        continue;
+                    }
+
+                    var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(addonInfo.info.PrefabPath);
+
+                    if (prefab == null) {
+                        Log($"Addon `{addonName}` failed to load, skipping", LogType.Warning);
+                        continue;
+                    }
+
+                    if (installAtTransform.Find(prefab.name) != null) {
+                        Log($"Addon `{addonName}` already exists, skipping", LogType.Warning);
+                        continue;
+                    }
+
+                    var newGO = PrefabUtility.InstantiatePrefab(prefab) as GameObject;
+                    Undo.RegisterCreatedObjectUndo(newGO, $"Create new {addonName} object");
+                    Undo.RecordObject(newGO, $"Reparent new {addonName} object");
+
+                    newGO.transform.SetParent(installAtTransform);
+                    // Fix positional offset of the avatar.  For some reason Unity doesn't auto-fix this..
+                    newGO.transform.position += targetAvatar.position;
+                }
+            }
         }
     }
 }
