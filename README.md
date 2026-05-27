@@ -27,3 +27,58 @@ It also allows creators to specify some addon prefabs that'll be placed as a chi
   `Ctrl`+`Left Click` allows you to select multiple folders and files  
   ![Export Example](.docs/HowTo_Export_Example.png)
 6. Be sure to notify your clientele that they can use this tool to swap their materials in seconds!
+
+## Definition File Format
+
+MaterialBindings:
+| Name      | Type          | Required? | Comment                                      |
+| --------- | ------------- | --------- | -------------------------------------------- |
+| Name      | String        | Required  | Name shown in the material swap button       |
+| DependsOn | String        | Optional  | Path of a file that the material depends on. |
+| Addons    | AddonInfo[]   | Required  | List of addon prefabs                        |
+| Bindings  | BindingInfo[] | Required  | List of material bindings (swaps)            |
+
+AddonInfo:
+| Name       | Type          | Required? | Comment                                             |
+| ---------- | ------------- | --------- | --------------------------------------------------- |
+| Name       | String        | Required  | Addon name shown in the tool UI                     |
+| PrefabPath | String        | Required  | Addon prefab path                                   |
+| InstallAt  | String        | Optional  | Where to add the prefab instance, defaults to root. |
+
+BindingInfo:
+| Name       | Type     | Required? | Comment                                           |
+| ---------- | -------- | --------- | ------------------------------------------------- |
+| PrefabPath | String   | Optional  | Prefab path that the material swap depends on.    |
+| ObjectPath | String   | Required  | Relative path to the Mesh object                  |
+| Materials  | String[] | Required  | List of materials (Ordered like in Unity Editor). |
+
+Example:
+```json
+{
+  "Name": "My Material Name",
+  "DependsOn": "Assets/Some/Path/MyEpicAvatar.prefab",
+  "Addons": [
+    {
+      "Name": "Checkbox Name",
+      "PrefabPath": "Assets/Some/Path/MyEpicAddon.prefab",
+      "InstallAt": "some/relative/path"
+    }
+  ],
+  "Bindings": [
+    {
+      "ObjectPath": "apple",
+      "Materials": [
+        "Assets/AltStyle/materials/apple_1.mat",
+        "Assets/AltStyle/materials/apple_2.mat"
+      ]
+    },
+    {
+      "PrefabPath": "Assets/Some/Path/MyEpicAddon.prefab",
+      "ObjectPath": "MyEpicAddon/juice",
+      "Materials": [
+        "Assets/AltStyle/materials/juice.mat"
+      ]
+    }
+  ]
+}
+```

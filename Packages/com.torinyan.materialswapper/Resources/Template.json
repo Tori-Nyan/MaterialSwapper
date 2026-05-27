@@ -1,14 +1,19 @@
 {
   "Name": "Template",
+  "DependsOn": "Assets/Some/Path/MyEpicAvatar.prefab",
   "Addons": [
     {
       "Name": "Checkbox Name",
       "PrefabPath": "Assets/Some/Path/MyEpicAddon.prefab"
+    },
+    {
+      "Name": "Checkbox Name",
+      "PrefabPath": "Assets/Some/Path/MyEpicAddon.prefab",
+      "InstallAt": "some/relative/path"
     }
   ],
   "Bindings": [
     {
-      "PrefabPath": "",
       "ObjectPath": "apple",
       "Materials": [
         "Assets/AltStyle/materials/apple_1.mat",

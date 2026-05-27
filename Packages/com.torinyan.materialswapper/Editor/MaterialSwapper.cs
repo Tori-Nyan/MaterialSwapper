@@ -31,66 +31,83 @@ namespace com.torinyan.MatSwap.Editor
 {
     internal class MatSwapEnsureAssetFolderExists : AssetPostprocessor
     {
-        private readonly static Dictionary<string, string> CDefaultMappings = new()
-        {
-            { "Packages/com.torinyan.materialswapper/Resources/BAN_Default.json", $"{MaterialSwapper.CAssetPath}BAN_Default.json" },
-            { "Packages/com.torinyan.materialswapper/Resources/Template.json", $"{MaterialSwapper.CAssetPath}Template.json" }
+        private const string CInitializedFile = "ProjectSettings/_torinyan_matswap.lock";
+        private const string CResourcePath = "Packages/com.torinyan.materialswapper/Resources/";
+        private readonly static Dictionary<string, string> CDefaultMappings = new() {
+            { $"{CResourcePath}BAN_Default.json", $"{MaterialSwapper.CAssetPath}BAN_Default.json" },
+            { $"{CResourcePath}{MaterialSwapper.CTemplateFileName}", $"{MaterialSwapper.CAssetPath}{MaterialSwapper.CTemplateFileName}" }
         };
 
-        static void OnPostprocessAllAssets(string[] imports, string[] deletes, string[] moves, string[] movedFromAssets, bool domainReload)
-        {
-            bool hadChanges = false;
-
-            if (!Directory.Exists(MaterialSwapper.CAssetPath))
-            {
-                hadChanges = true;
-
-                try
-                {
+        static void OnPostprocessAllAssets(string[] imports, string[] deletes, string[] moves, string[] movedFromAssets, bool domainReload) {
+            if (!Directory.Exists(MaterialSwapper.CAssetPath)) {
+                try {
+                    File.Delete(CInitializedFile);
                     Directory.CreateDirectory(MaterialSwapper.CAssetPath);
-                }
-                catch (Exception ex)
-                {
+                } catch (Exception ex) {
                     Debug.Log($"Error creating the Material Bindings folder: {ex.Message}");
                     return;
                 }
             }
 
-            foreach (var (resourcePath, assetPath) in CDefaultMappings)
-            {
-                if (File.Exists(resourcePath) && !File.Exists(assetPath))
-                {
-                    hadChanges = true;
-                    File.Copy(resourcePath, assetPath);
+            if (!File.Exists(CInitializedFile)) {
+                try {
+                    File.WriteAllText(CInitializedFile, string.Empty);
+                } catch (Exception ex) {
+                    Debug.Log($"Error copying default binhdings to Material Bindings folder: {ex.Message}");
+                    return;
                 }
-            }
 
-            if (hadChanges)
-                AssetDatabase.Refresh();
+                AssetDatabase.StartAssetEditing();
+
+                foreach (var (srcPath, destPath) in CDefaultMappings) {
+                    try {
+                        if (File.Exists(srcPath) && !File.Exists(destPath))
+                            AssetDatabase.CopyAsset(srcPath, destPath);
+                    } catch (Exception ex) {
+                        Debug.Log($"Error copying default binhdings to Material Bindings folder: {ex.Message}");
+                    }
+                }
+
+                AssetDatabase.StopAssetEditing();
+            }
         }
     }
 
     public class MaterialSwapper : EditorWindow
     {
         internal const string CAssetPath = "Assets/[Torinyan] Tools/MaterialSwapper/";
+        internal const string CTemplateFileName = "Template.json";
         private const string CJsonSearch = "*.json";
 
         private class MaterialBindings
         {
             public class AddonInfo
             {
+                [JsonProperty(Required = Required.Always)]
                 public string Name;
+                [JsonProperty(Required = Required.Always)]
                 public string PrefabPath;
+                [JsonProperty(DefaultValueHandling = DefaultValueHandling.Populate)]
+                public string InstallAt = string.Empty;
             }
+
             public class BindingInfo
             {
-                public string PrefabPath;
+                [JsonProperty(DefaultValueHandling = DefaultValueHandling.Populate)]
+                public string PrefabPath = string.Empty;
+                [JsonProperty(Required = Required.Always)]
                 public string ObjectPath;
+                [JsonProperty(Required = Required.Always)]
                 public string[] Materials;
             }
 
+            [JsonProperty(Required = Required.Always)]
             public string Name;
+            [JsonProperty(DefaultValueHandling = DefaultValueHandling.Populate)]
+            public string DependsOn = string.Empty;
+            [JsonProperty(Required = Required.Always)]
             public AddonInfo[] Addons;
+            [JsonProperty(Required = Required.Always)]
             public BindingInfo[] Bindings;
         }
 
@@ -98,10 +115,10 @@ namespace com.torinyan.MatSwap.Editor
         private static readonly Vector2 _guiElementSpacing = new(0f, 21f);
         private Vector2 _windowSize;
 
-        private readonly Dictionary<string, MaterialBindings> _materialOptions = new();
-        private readonly Dictionary<string, (bool Enabled, GameObject Prefab)> _addonPrefabs = new();
+        private readonly List<MaterialBindings> _materialOptions = new();
+        private readonly Dictionary<string, (bool Enabled, MaterialBindings.AddonInfo info)> _addonPrefabs = new();
         private readonly List<VRCAvatarDescriptor> _avatars = new();
-        private string[] _avatarNames = Array.Empty<string>();
+        private string[] _avatarNames = new[] { "Custom (Drag&Drop below)" };
         private int _selectedAvatarId = 0;
         private VRCAvatarDescriptor _selectedAvatar;
 
@@ -115,8 +132,7 @@ namespace com.torinyan.MatSwap.Editor
         void OnHierarchyChange() =>
             UpdateOptions();
 
-        void OnGUI()
-        {
+        void OnGUI() {
             minSize = _windowSize;
             maxSize = _windowSize;
 
@@ -125,62 +141,62 @@ namespace com.torinyan.MatSwap.Editor
             {
                 _selectedAvatarId = EditorGUILayout.Popup("Avatar Select", _selectedAvatarId, _avatarNames);
             }
-            if (EditorGUI.EndChangeCheck() && _avatars.Count > 0)
+            if (EditorGUI.EndChangeCheck() && _selectedAvatarId > 0)
                 _selectedAvatar = _avatars[_selectedAvatarId];
 
-            _selectedAvatar = EditorGUILayout.ObjectField("Avatar Object", _selectedAvatar, typeof(VRCAvatarDescriptor), true) as VRCAvatarDescriptor;
+            EditorGUI.BeginChangeCheck();
+            {
+                _selectedAvatar = EditorGUILayout.ObjectField("Avatar Object", _selectedAvatar, typeof(VRCAvatarDescriptor), true) as VRCAvatarDescriptor;
+            }
+            if (EditorGUI.EndChangeCheck()) {
+                if (_selectedAvatar == null) {
+                    _selectedAvatarId = 0;
+                } else {
+                    int selectedIdx = _avatars.FindIndex(x => x.name.Equals(_selectedAvatar.name, StringComparison.InvariantCulture));
+                    _selectedAvatarId = selectedIdx > -1 ? selectedIdx : 0;
+                }
+            }
 
             EditorGUILayout.Space();
 
-            for (int i = 0; i < _addonPrefabs.Count; i++)
-            {
+            for (int i = 0; i < _addonPrefabs.Count; i++) {
                 var (addonName, addonInfo) = _addonPrefabs.ElementAt(i);
                 addonInfo.Enabled = EditorGUILayout.ToggleLeft($"Add {addonName}", addonInfo.Enabled);
                 _addonPrefabs[addonName] = addonInfo;
             }
 
             EditorGUILayout.Space(12f);
-            EditorGUI.BeginDisabledGroup(
-                _avatars.Count <= 0 ||
-                _selectedAvatarId > _avatars.Count ||
-                _avatars[_selectedAvatarId] == null
-            );
+            EditorGUI.BeginDisabledGroup(_selectedAvatar == null);
             {
-                foreach (var (name, _) in _materialOptions)
-                {
-                    if (GUILayout.Button($"Set `{name}` Materials"))
-                        PerformSwap(name);
+                foreach (var info in _materialOptions) {
+                    if (GUILayout.Button($"Set `{info.Name}` Materials"))
+                        PerformSwap(info);
                 }
             }
             EditorGUI.EndDisabledGroup();
         }
 
-        private void UpdateOptions()
-        {
+        private void UpdateOptions() {
             _addonPrefabs.Clear();
             _materialOptions.Clear();
 
-            foreach (var jsonFile in Directory.EnumerateFiles(CAssetPath, CJsonSearch, SearchOption.TopDirectoryOnly))
-            {
+            foreach (var jsonFile in Directory.EnumerateFiles(CAssetPath, CJsonSearch, SearchOption.TopDirectoryOnly)) {
                 // We skip the template file
-                if (jsonFile.Contains("Template.json", StringComparison.InvariantCultureIgnoreCase))
+                if (jsonFile.Contains(CTemplateFileName, StringComparison.InvariantCultureIgnoreCase))
                     continue;
 
-                var matBinding = JsonConvert.DeserializeObject<MaterialBindings>(File.ReadAllText(jsonFile));
-                _materialOptions.Add(matBinding.Name, matBinding);
+                var info = JsonConvert.DeserializeObject<MaterialBindings>(File.ReadAllText(jsonFile));
+
+                if (!string.IsNullOrWhiteSpace(info.DependsOn) && !File.Exists(info.DependsOn))
+                    continue;
+
+                _materialOptions.Add(info);
             }
 
-            foreach (var (_, info) in _materialOptions)
-            {
-                foreach (var addon in info.Addons)
-                {
-                    if (!File.Exists(addon.PrefabPath))
-                        continue;
-
-                    _addonPrefabs.Add(
-                        addon.Name,
-                        (false, AssetDatabase.LoadAssetAtPath<GameObject>(addon.PrefabPath))
-                    );
+            foreach (var info in _materialOptions) {
+                foreach (var addon in info.Addons) {
+                    if (File.Exists(addon.PrefabPath))
+                        _addonPrefabs.Add(addon.Name, (false, addon));
                 }
             }
 
@@ -188,72 +204,70 @@ namespace com.torinyan.MatSwap.Editor
             UpdateAvatarList();
         }
 
-        private void UpdateAvatarList()
-        {
+        private void UpdateAvatarList() {
             var oldAvatarName = _selectedAvatar == null ? null : _selectedAvatar.gameObject.name;
             _avatars.Clear();
             List<GameObject> roots = new();
 
-            for (int i = 0; i < SceneManager.sceneCount; i++)
-            {
+            for (int i = 0; i < SceneManager.sceneCount; i++) {
                 var scene = SceneManager.GetSceneAt(i);
-                if (scene == null) continue;
+
+                if (scene == null)
+                    continue;
 
                 roots.AddRange(scene.GetRootGameObjects());
             }
 
-            var names = new List<string>();
+            var names = new List<string>() { "Custom (Drag&Drop below)" };
 
-            foreach (var rootGO in roots)
-            {
-                if (rootGO.TryGetComponent<VRCAvatarDescriptor>(out var avatar))
-                {
+            foreach (var rootGO in roots) {
+                if (rootGO.TryGetComponent<VRCAvatarDescriptor>(out var avatar)) {
                     _avatars.Add(avatar);
                     names.Add(rootGO.name);
                 }
             }
 
-            if (!string.IsNullOrWhiteSpace(oldAvatarName))
-            {
+            if (!string.IsNullOrWhiteSpace(oldAvatarName)) {
                 var oldNameIdx = names.FindIndex(x => x.Equals(oldAvatarName, StringComparison.InvariantCulture));
                 _selectedAvatarId = oldNameIdx > -1 ? oldNameIdx : 0;
-            }
-            else
+            } else
                 _selectedAvatarId = 0;
 
-            if (_avatars.Count > 0)
-            {
-                _avatarNames = names.ToArray();
+            _avatarNames = names.ToArray();
+
+            if (_selectedAvatarId > 0)
                 _selectedAvatar = _avatars[_selectedAvatarId];
-            }
-            else
-            {
-                _avatarNames = new[] { "No Avatars Detected" };
-                _selectedAvatar = null;
-            }
         }
 
-        private void PerformSwap(string matType)
-        {
-            var bindings = _materialOptions[matType].Bindings;
+        private void PerformSwap(MaterialBindings matType) {
+            if (_selectedAvatar == null)
+                return;
+
             var avatarTransform = _selectedAvatar.transform;
 
-            Undo.SetCurrentGroupName($"[Torinyan] Perform material swap `{matType}`");
+            Undo.SetCurrentGroupName($"[Torinyan] Perform material swap `{matType.Name}`");
             int group = Undo.GetCurrentGroup();
 
-            foreach (var (addonName, addonInfo) in _addonPrefabs)
-            {
-                if (addonInfo.Enabled && addonInfo.Prefab != null && avatarTransform.Find(addonInfo.Prefab.name) == null)
-                {
-                    var newGO = PrefabUtility.InstantiatePrefab(addonInfo.Prefab) as GameObject;
+            foreach (var (addonName, addonInfo) in _addonPrefabs) {
+                if (addonInfo.Enabled) {
+                    var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(addonInfo.info.PrefabPath);
+
+                    if (prefab == null || avatarTransform.Find(prefab.name) != null)
+                        return;
+
+                    var newGO = PrefabUtility.InstantiatePrefab(prefab) as GameObject;
                     Undo.RegisterCreatedObjectUndo(newGO, $"Create new {addonName} object");
                     Undo.RecordObject(newGO, $"Reparent new {addonName} object");
-                    newGO.transform.SetParent(avatarTransform);
+
+                    var parent = string.IsNullOrWhiteSpace(addonInfo.info.InstallAt)
+                        ? avatarTransform
+                        : avatarTransform.Find(addonInfo.info.InstallAt);
+                    newGO.transform.SetParent(parent);
+                    newGO.transform.position += avatarTransform.position;
                 }
             }
 
-            foreach(var binding in bindings)
-            {
+            foreach (var binding in matType.Bindings) {
                 if (!string.IsNullOrWhiteSpace(binding.PrefabPath) && !File.Exists(binding.PrefabPath))
                     continue;
 
@@ -265,10 +279,8 @@ namespace com.torinyan.MatSwap.Editor
                 var matLen = binding.Materials.Length;
                 var materials = new List<Material>(matLen);
 
-                for (int i = 0; i < matLen; i++)
-                {
-                    if (!File.Exists(binding.Materials[i]))
-                    {
+                for (int i = 0; i < matLen; i++) {
+                    if (!File.Exists(binding.Materials[i])) {
                         materials.Add(renderer.sharedMaterials[i]);
                         continue;
                     }

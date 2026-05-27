@@ -1,9 +1,9 @@
 {
   "Name": "BAN Default",
+  "DependsOn": "Assets/[torinyan]Ban/meshes and blend/Ban_source.fbx",
   "Addons": [],
   "Bindings": [
     {
-      "PrefabPath": "",
       "ObjectPath": "ban_body",
       "Materials": [
         "Assets/[torinyan]Ban/materials/ban_body.mat",
@@ -11,27 +11,22 @@
       ]
     },
     {
-      "PrefabPath": "",
       "ObjectPath": "ban_endo",
       "Materials": [ "Assets/[torinyan]Ban/materials/ban_endo.mat" ]
     },
     {
-      "PrefabPath": "",
       "ObjectPath": "ban_face_shade",
       "Materials": [ "Assets/[torinyan]Ban/materials/face_shade.mat" ]
     },
     {
-      "PrefabPath": "",
       "ObjectPath": "ban_hairs",
       "Materials": [ "Assets/[torinyan]Ban/materials/hairs.mat" ]
     },
     {
-      "PrefabPath": "",
       "ObjectPath": "ban_mask",
       "Materials": [ "Assets/[torinyan]Ban/materials/ban_mask.mat" ]
     },
     {
-      "PrefabPath": "",
       "ObjectPath": "robot",
       "Materials": [
         "Assets/[torinyan]Ban/materials/ban_face.mat",
@@ -39,42 +34,34 @@
       ]
     },
     {
-      "PrefabPath": "",
       "ObjectPath": "ban_backpack",
       "Materials": [ "Assets/[torinyan]Ban/materials/ban_props.mat" ]
     },
     {
-      "PrefabPath": "",
       "ObjectPath": "ban_can",
       "Materials": [ "Assets/[torinyan]Ban/materials/ban_loreparts.mat" ]
     },
     {
-      "PrefabPath": "",
       "ObjectPath": "ban_grenade",
       "Materials": [ "Assets/[torinyan]Ban/materials/ban_props.mat" ]
     },
     {
-      "PrefabPath": "",
       "ObjectPath": "ban_knife",
       "Materials": [ "Assets/[torinyan]Ban/materials/ban_props.mat" ]
     },
     {
-      "PrefabPath": "",
       "ObjectPath": "ban_laser",
       "Materials": [ "Assets/[torinyan]Ban/materials/ban_laser.mat" ]
     },
     {
-      "PrefabPath": "",
       "ObjectPath": "ban_launchers",
       "Materials": [ "Assets/[torinyan]Ban/materials/ban_props.mat" ]
     },
     {
-      "PrefabPath": "",
       "ObjectPath": "ban_nails",
       "Materials": [ "Assets/[torinyan]Ban/materials/ban_props.mat" ]
     },
     {
-      "PrefabPath": "",
       "ObjectPath": "ban_severed_hand",
       "Materials": [
         "Assets/[torinyan]Ban/materials/ban_loreparts.mat",
@@ -82,17 +69,14 @@
       ]
     },
     {
-      "PrefabPath": "",
       "ObjectPath": "ban_severed_head",
       "Materials": [ "Assets/[torinyan]Ban/materials/ban_loreparts.mat" ]
     },
     {
-      "PrefabPath": "",
       "ObjectPath": "Armature/hips/spine/chest/shoulder_L/upper_arm_L/lower_arm_L/zlower_arm_twist_L/Lasor prefab source/props.001",
       "Materials": [ "Assets/[torinyan]Ban/materials/Laser_Particle.mat" ]
     },
     {
-      "PrefabPath": "",
       "ObjectPath": "Armature/hips/spine/chest/shoulder_R/upper_arm_R/lower_arm_R/zlower_arm_twist_R/Lasor prefab source/props.001",
       "Materials": [ "Assets/[torinyan]Ban/materials/Laser_Particle.mat" ]
     },
