@@ -124,7 +124,7 @@ namespace com.torinyan.MatSwap.Editor
 
         [MenuItem("Tools/Torinyan/Material Swapper")]
         public static void ShowWindow() =>
-            GetWindow<MaterialSwapper>(true, "[Torinyan] Material Swapper v1.0.6", true);
+            GetWindow<MaterialSwapper>(true, "[Torinyan] Material Swapper v1.0.7", true);
 
         void OnEnable() =>
             UpdateOptions();
@@ -149,33 +149,34 @@ namespace com.torinyan.MatSwap.Editor
                 _selectedAvatar = EditorGUILayout.ObjectField("Avatar Object", _selectedAvatar, typeof(VRCAvatarDescriptor), true) as VRCAvatarDescriptor;
             }
             if (EditorGUI.EndChangeCheck()) {
-                if (_selectedAvatar == null) {
-                    _selectedAvatarId = 0;
-                } else {
-                    _selectedAvatarId = _avatars.FindIndex(x =>
+                _selectedAvatarId = _selectedAvatar == null
+                    ? 0
+                    : (_avatars.FindIndex(x =>
                         x.gameObject.name.Equals(_selectedAvatar.gameObject.name, StringComparison.Ordinal)
-                    ) + 1; // +1 so if we didn't find it (-1), we select custom (0)
-                }
+                    ) + 1); // +1 so if we didn't find it (-1), we select custom (0)
             }
 
-            if (_addonPrefabs.Count > 0)
+            if (_addonPrefabs.Count > 0) {
                 EditorGUILayout.Space();
 
-            for (int i = 0; i < _addonPrefabs.Count; i++) {
-                var (addonPrefabPath, addonInfo) = _addonPrefabs.ElementAt(i);
-                addonInfo.Enabled = EditorGUILayout.ToggleLeft($"Add {addonInfo.info.Name}", addonInfo.Enabled);
-                _addonPrefabs[addonPrefabPath] = addonInfo;
-            }
-
-            EditorGUILayout.Space(12f);
-            EditorGUI.BeginDisabledGroup(_selectedAvatar == null);
-            {
-                foreach (var info in _materialOptions) {
-                    if (GUILayout.Button($"Set `{info.Name}` Materials"))
-                        PerformSwap(info);
+                foreach (var addonPrefabPath in _addonPrefabs.Keys.ToArray()) {
+                    var addonInfo = _addonPrefabs[addonPrefabPath];
+                    addonInfo.Enabled = EditorGUILayout.ToggleLeft($"Add {addonInfo.info.Name}", addonInfo.Enabled);
+                    _addonPrefabs[addonPrefabPath] = addonInfo;
                 }
             }
-            EditorGUI.EndDisabledGroup();
+
+            if (_materialOptions.Count > 0) {
+                EditorGUILayout.Space(12f);
+                EditorGUI.BeginDisabledGroup(_selectedAvatar == null);
+                {
+                    foreach (var info in _materialOptions) {
+                        if (GUILayout.Button($"Set `{info.Name}` Materials"))
+                            PerformSwap(info);
+                    }
+                }
+                EditorGUI.EndDisabledGroup();
+            }
         }
 
         internal static void Log(string msg, LogType logType = LogType.Log) {

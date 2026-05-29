@@ -1,3 +1,8 @@
+v1.0.7
+  - Code formatting
+  - Swap what spacer to discard in OnGUI
+  - Iterate over addon options by key instead of index
+
 v1.0.6
   - Some small optimizations
   - Fix addons being deselected after material swapping/scene updates/etc
