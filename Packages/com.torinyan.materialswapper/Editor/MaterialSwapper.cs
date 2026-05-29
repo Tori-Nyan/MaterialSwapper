@@ -124,7 +124,7 @@ namespace com.torinyan.MatSwap.Editor
 
         [MenuItem("Tools/Torinyan/Material Swapper")]
         public static void ShowWindow() =>
-            GetWindow<MaterialSwapper>(true, "[Torinyan] Material Swapper", true);
+            GetWindow<MaterialSwapper>(true, "[Torinyan] Material Swapper v1.0.6", true);
 
         void OnEnable() =>
             UpdateOptions();
@@ -152,17 +152,19 @@ namespace com.torinyan.MatSwap.Editor
                 if (_selectedAvatar == null) {
                     _selectedAvatarId = 0;
                 } else {
-                    int selectedIdx = _avatars.FindIndex(x => x.name.Equals(_selectedAvatar.name, StringComparison.InvariantCulture));
-                    _selectedAvatarId = selectedIdx > -1 ? selectedIdx : 0;
+                    _selectedAvatarId = _avatars.FindIndex(x =>
+                        x.gameObject.name.Equals(_selectedAvatar.gameObject.name, StringComparison.Ordinal)
+                    ) + 1; // +1 so if we didn't find it (-1), we select custom (0)
                 }
             }
 
-            EditorGUILayout.Space();
+            if (_addonPrefabs.Count > 0)
+                EditorGUILayout.Space();
 
             for (int i = 0; i < _addonPrefabs.Count; i++) {
-                var (addonName, addonInfo) = _addonPrefabs.ElementAt(i);
-                addonInfo.Enabled = EditorGUILayout.ToggleLeft($"Add {addonName}", addonInfo.Enabled);
-                _addonPrefabs[addonName] = addonInfo;
+                var (addonPrefabPath, addonInfo) = _addonPrefabs.ElementAt(i);
+                addonInfo.Enabled = EditorGUILayout.ToggleLeft($"Add {addonInfo.info.Name}", addonInfo.Enabled);
+                _addonPrefabs[addonPrefabPath] = addonInfo;
             }
 
             EditorGUILayout.Space(12f);
@@ -201,12 +203,13 @@ namespace com.torinyan.MatSwap.Editor
         }
 
         private void UpdateOptions() {
-            _addonPrefabs.Clear();
+            var oldAddons = _addonPrefabs.Keys.ToArray();
+            List<string> foundAddons = new();
             _materialOptions.Clear();
 
             foreach (var jsonFile in Directory.EnumerateFiles(CAssetPath, CJsonSearch, SearchOption.TopDirectoryOnly)) {
                 // We skip the template file
-                if (jsonFile.Contains(CTemplateFileName, StringComparison.InvariantCultureIgnoreCase))
+                if (jsonFile.Contains(CTemplateFileName, StringComparison.OrdinalIgnoreCase))
                     continue;
 
                 var info = JsonConvert.DeserializeObject<MaterialBindings>(File.ReadAllText(jsonFile));
@@ -219,9 +222,18 @@ namespace com.torinyan.MatSwap.Editor
 
             foreach (var info in _materialOptions) {
                 foreach (var addon in info.Addons) {
-                    if (File.Exists(addon.PrefabPath))
-                        _addonPrefabs.Add(addon.Name, (false, addon));
+                    if (File.Exists(addon.PrefabPath)) {
+                        foundAddons.Add(addon.PrefabPath);
+
+                        if (!_addonPrefabs.ContainsKey(addon.PrefabPath))
+                            _addonPrefabs.Add(addon.PrefabPath, (false, addon));
+                    }
                 }
+            }
+
+            // Remove any addon that no longer exists
+            foreach (var item in oldAddons.Where(x => !foundAddons.Contains(x))) {
+                _addonPrefabs.Remove(item);
             }
 
             _windowSize = _windowSizeDefault + (_guiElementSpacing * (_materialOptions.Count + _addonPrefabs.Count));
@@ -251,11 +263,12 @@ namespace com.torinyan.MatSwap.Editor
                 }
             }
 
-            if (!string.IsNullOrWhiteSpace(oldAvatarName)) {
-                var oldNameIdx = names.FindIndex(x => x.Equals(oldAvatarName, StringComparison.InvariantCulture));
-                _selectedAvatarId = oldNameIdx > -1 ? oldNameIdx : 0;
-            } else
+            if (string.IsNullOrWhiteSpace(oldAvatarName)) {
                 _selectedAvatarId = 0;
+            } else {
+                var oldNameIdx = names.FindIndex(x => x.Equals(oldAvatarName, StringComparison.Ordinal));
+                _selectedAvatarId = oldNameIdx > -1 ? oldNameIdx : 0;
+            }
 
             _avatarNames = names.ToArray();
 
@@ -318,32 +331,32 @@ namespace com.torinyan.MatSwap.Editor
                 return;
             }
 
-            foreach (var (addonName, addonInfo) in _addonPrefabs) {
+            foreach (var (_, addonInfo) in _addonPrefabs) {
                 if (addonInfo.Enabled) {
                     var installAtTransform = string.IsNullOrWhiteSpace(addonInfo.info.InstallAt)
                         ? targetAvatar
                         : targetAvatar.Find(addonInfo.info.InstallAt);
 
                     if (installAtTransform == null) {
-                        Log($"Addon `{addonName}` InstallAt location `{addonInfo.info.InstallAt}` not found, skipping", LogType.Warning);
+                        Log($"Addon `{addonInfo.info.Name}` InstallAt location `{addonInfo.info.InstallAt}` not found, skipping", LogType.Warning);
                         continue;
                     }
 
                     var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(addonInfo.info.PrefabPath);
 
                     if (prefab == null) {
-                        Log($"Addon `{addonName}` failed to load, skipping", LogType.Warning);
+                        Log($"Addon `{addonInfo.info.Name}` failed to load, skipping", LogType.Warning);
                         continue;
                     }
 
                     if (installAtTransform.Find(prefab.name) != null) {
-                        Log($"Addon `{addonName}` already exists, skipping", LogType.Warning);
+                        Log($"Addon `{addonInfo.info.Name}` already exists, skipping", LogType.Warning);
                         continue;
                     }
 
                     var newGO = PrefabUtility.InstantiatePrefab(prefab) as GameObject;
-                    Undo.RegisterCreatedObjectUndo(newGO, $"Create new {addonName} object");
-                    Undo.RecordObject(newGO, $"Reparent new {addonName} object");
+                    Undo.RegisterCreatedObjectUndo(newGO, $"Create new {addonInfo.info.Name} object");
+                    Undo.RecordObject(newGO, $"Reparent new {addonInfo.info.Name} object");
 
                     newGO.transform.SetParent(installAtTransform);
                     // Fix positional offset of the avatar.  For some reason Unity doesn't auto-fix this..

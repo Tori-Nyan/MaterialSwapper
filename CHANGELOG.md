@@ -1,3 +1,10 @@
+v1.0.6
+  - Some small optimizations
+  - Fix addons being deselected after material swapping/scene updates/etc
+  - Fix possible name conflict issues with addons
+  - Fix off-by-one for selected avatar name matching when drag&droppign an avatar
+  - Add version to the toolwindow's title
+
 v1.0.5
   - Switch from forced file existance to initialized lock file
   - Code formatting
