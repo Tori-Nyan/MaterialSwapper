@@ -297,6 +297,14 @@
         "Assets/[torinyan]Ban/reuse slop addon/materials/ban_wand_gp.mat",
         "Assets/[torinyan]Ban/reuse slop addon/materials/ban_wand.mat"
       ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/runa wand.prefab",
+      "ObjectPath": "runa wand/magic_wand",
+      "Materials": [
+        "Assets/[torinyan]Ban/reuse slop addon/materials/ban_wand_gp.mat",
+        "Assets/[torinyan]Ban/reuse slop addon/materials/ban_wand.mat"
+      ]
     }
   ]
 }
