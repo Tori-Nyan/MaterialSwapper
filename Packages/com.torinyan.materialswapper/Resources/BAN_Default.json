@@ -299,12 +299,17 @@
       ]
     },
     {
-      "PrefabPath": "Assets/[torinyan]Ban/reuse slop addon/runa wand.prefab",
-      "ObjectPath": "runa wand/magic_wand",
+      "PrefabPath": "Assets/[torinyan]Ban/Thick and soft addon/Ban soft breast.prefab",
+      "ObjectPath": "Ban soft breast/ban_soft_boobs",
       "Materials": [
-        "Assets/[torinyan]Ban/reuse slop addon/materials/ban_wand_gp.mat",
-        "Assets/[torinyan]Ban/reuse slop addon/materials/ban_wand.mat"
+        "Assets/[torinyan]Ban/Thick and soft addon/materials/ban_soft.mat",
+        "Assets/[torinyan]Ban/Thick and soft addon/materials/ban_soft_gp.mat"
       ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/Thick and soft addon/Ban soft dusters.prefab",
+      "ObjectPath": "Ban soft dusters/ban_soft_lyahi",
+      "Materials": [ "Assets/[torinyan]Ban/Thick and soft addon/materials/ban_soft_gp.mat" ]
     }
   ]
 }

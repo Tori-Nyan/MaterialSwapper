@@ -39,6 +39,8 @@ namespace com.torinyan.MatSwap.Editor
         };
 
         static void OnPostprocessAllAssets(string[] imports, string[] deletes, string[] moves, string[] movedFromAssets, bool domainReload) {
+            AssetDatabase.StartAssetEditing();
+
             if (!Directory.Exists(MaterialSwapper.CAssetPath)) {
                 try {
                     File.Delete(CInitializedFile);
@@ -57,19 +59,29 @@ namespace com.torinyan.MatSwap.Editor
                     return;
                 }
 
-                AssetDatabase.StartAssetEditing();
-
                 foreach (var (srcPath, destPath) in CDefaultMappings) {
                     try {
                         if (File.Exists(srcPath) && !File.Exists(destPath))
                             AssetDatabase.CopyAsset(srcPath, destPath);
                     } catch (Exception ex) {
-                        MaterialSwapper.Log($"Error copying default binhdings to Material Bindings folder: {ex.Message}", LogType.Exception);
+                        MaterialSwapper.Log($"Error copying default bindings to Material Bindings folder: {ex.Message}", LogType.Exception);
                     }
                 }
-
-                AssetDatabase.StopAssetEditing();
             }
+
+            foreach (var (srcPath, destPath) in CDefaultMappings) {
+                try {
+                    if (!File.Exists(srcPath) && !File.Exists(destPath))
+                        continue;
+
+                    if (File.GetLastWriteTimeUtc(srcPath) > File.GetLastWriteTimeUtc(destPath))
+                        File.Copy(srcPath, destPath, true);
+                } catch (Exception ex) {
+                    MaterialSwapper.Log($"Error copying default bindings to Material Bindings folder: {ex.Message}", LogType.Exception);
+                }
+            }
+
+            AssetDatabase.StopAssetEditing();
         }
     }
 
@@ -124,7 +136,7 @@ namespace com.torinyan.MatSwap.Editor
 
         [MenuItem("Tools/Torinyan/Material Swapper")]
         public static void ShowWindow() =>
-            GetWindow<MaterialSwapper>(true, "[Torinyan] Material Swapper v1.0.7", true);
+            GetWindow<MaterialSwapper>(true, "[Torinyan] Material Swapper v1.0.8", true);
 
         void OnEnable() =>
             UpdateOptions();
