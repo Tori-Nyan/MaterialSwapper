@@ -400,6 +400,16 @@
         "Assets/[torinyan]Ban/materials/hairs.mat",
         "Assets/[torinyan]Ban/femban/materials/subby ears.mat"
       ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/Ban_machinegun/Prefabs/Manual/BAN_MACHINEGUN.prefab",
+      "ObjectPath": "BAN_MACHINEGUN/Container/Model/machinegun_source/ban_machinegun",
+      "Materials": [
+        "Assets/[torinyan]Ban/Ban_machinegun/Dependencies/materials/bucket.mat",
+        "Assets/[torinyan]Ban/Ban_machinegun/Dependencies/materials/rack.mat",
+        "Assets/[torinyan]Ban/Ban_machinegun/Dependencies/materials/belt.mat",
+        "Assets/[torinyan]Ban/Ban_machinegun/Dependencies/materials/machinegun.mat"
+      ]
     }
   ]
 }
