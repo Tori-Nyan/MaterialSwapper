@@ -329,6 +329,31 @@
       "PrefabPath": "Assets/[torinyan]Ban/softbody addon/ban softbody.prefab",
       "ObjectPath": "ban softbody/ban_softendo",
       "Materials": [ "Assets/[torinyan]Ban/softbody addon/materials/ban_body_soft_endo.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/hair addon/hairs01.prefab",
+      "ObjectPath": "hairs01/Ban_hair_01",
+      "Materials": [ "Assets/[torinyan]Ban/hair addon/materials/hairs 1.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/hair addon/hairs02.prefab",
+      "ObjectPath": "hairs02/Ban_hair_02",
+      "Materials": [ "Assets/[torinyan]Ban/hair addon/materials/hairs 2.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/hair addon/hairs03.prefab",
+      "ObjectPath": "hairs03/Ban_hair_03",
+      "Materials": [ "Assets/[torinyan]Ban/hair addon/materials/hairs 3.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/hair addon/hairs04.prefab",
+      "ObjectPath": "hairs01/Ban_hair_04",
+      "Materials": [ "Assets/[torinyan]Ban/hair addon/materials/hairs 4.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/hair addon/hairs05.prefab",
+      "ObjectPath": "hairs01/Ban_hair_05",
+      "Materials": [ "Assets/[torinyan]Ban/hair addon/materials/hairs 5.mat" ]
     }
   ]
 }
