@@ -354,6 +354,52 @@
       "PrefabPath": "Assets/[torinyan]Ban/hair addon/hairs05.prefab",
       "ObjectPath": "hairs01/Ban_hair_05",
       "Materials": [ "Assets/[torinyan]Ban/hair addon/materials/hairs 5.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/femban/femban.prefab",
+      "ObjectPath": "femban/femban_belly",
+      "Materials": [ "Assets/[torinyan]Ban/femban/materials/femban_GP.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/femban/femban.prefab",
+      "ObjectPath": "femban/femban_butt_rib",
+      "Materials": [ "Assets/[torinyan]Ban/femban/materials/femban.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/femban/femban.prefab",
+      "ObjectPath": "femban/femban_chest",
+      "Materials": [
+        "Assets/[torinyan]Ban/femban/materials/femban_GP.mat",
+        "Assets/[torinyan]Ban/femban/materials/femban.mat"
+      ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/femban/femban.prefab",
+      "ObjectPath": "femban/femban_crotch_less_sfw",
+      "Materials": [ "Assets/[torinyan]Ban/femban/materials/femban.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/femban/femban.prefab",
+      "ObjectPath": "femban/femban_crotch_sfw",
+      "Materials": [ "Assets/[torinyan]Ban/femban/materials/femban.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/femban/femban bussy.prefab",
+      "ObjectPath": "femban bussy/ban_ass_shapekey",
+      "Materials": [ "Assets/[torinyan]Ban/materials/ban_body.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/femban/femban bussy.prefab",
+      "ObjectPath": "femban bussy/ban_crotch_one_hole_femban",
+      "Materials": [ "Assets/[torinyan]Ban/Ban Abusive GF/holes/materials/ban_holes.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/femban/subby ears.prefab",
+      "ObjectPath": "subby ears/ban_hairs",
+      "Materials": [
+        "Assets/[torinyan]Ban/materials/hairs.mat",
+        "Assets/[torinyan]Ban/femban/materials/subby ears.mat"
+      ]
     }
   ]
 }
