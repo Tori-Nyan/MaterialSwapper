@@ -310,6 +310,25 @@
       "PrefabPath": "Assets/[torinyan]Ban/Thick and soft addon/Ban soft dusters.prefab",
       "ObjectPath": "Ban soft dusters/ban_soft_lyahi",
       "Materials": [ "Assets/[torinyan]Ban/Thick and soft addon/materials/ban_soft_gp.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/softbody addon/ban softbody.prefab",
+      "ObjectPath": "ban softbody/ban_softbody",
+      "Materials": [
+        "Assets/[torinyan]Ban/softbody addon/materials/ban_body_soft.mat",
+        "Assets/[torinyan]Ban/softbody addon/materials/ban_body_soft_gp.mat",
+        "Assets/[torinyan]Ban/softbody addon/materials/ban_softbody_hole.mat"
+      ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/softbody addon/ban softbody.prefab",
+      "ObjectPath": "ban softbody/ban_softcovers",
+      "Materials": [ "Assets/[torinyan]Ban/softbody addon/materials/ban_softbody_covers.mat" ]
+    },
+    {
+      "PrefabPath": "Assets/[torinyan]Ban/softbody addon/ban softbody.prefab",
+      "ObjectPath": "ban softbody/ban_softendo",
+      "Materials": [ "Assets/[torinyan]Ban/softbody addon/materials/ban_body_soft_endo.mat" ]
     }
   ]
 }
