@@ -136,7 +136,7 @@ namespace com.torinyan.MatSwap.Editor
 
         [MenuItem("Tools/Torinyan/Material Swapper")]
         public static void ShowWindow() =>
-            GetWindow<MaterialSwapper>(true, "[Torinyan] Material Swapper v1.0.8", true);
+            GetWindow<MaterialSwapper>(true, "[Torinyan] Material Swapper v1.0.10", true);
 
         void OnEnable() =>
             UpdateOptions();
